@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta content='width=device-width, initial-scale=1.0' name='viewport'>
+	  <title>Compromise</title>
+	  <meta content='Compromise' name='description'>
+		<link href="assets/application.css?body=1" media="all" rel="stylesheet" />
+		<link href="assets/base.css?body=1" media="all" rel="stylesheet" />
+		<link href="assets/home.css?body=1" media="all" rel="stylesheet" />
+		<link href="assets/layout.css?body=1" media="all" rel="stylesheet" />
+		<link href="assets/normalize.css?body=1" media="all" rel="stylesheet" />
+		<link href="assets/skeleton.css?body=1" media="all" rel="stylesheet" />
+		<link href="assets/jquery.ui.timepicker.css?body=1" media="all" rel="stylesheet" />		
+		
+		<script src="assets/jquery.js?body=1"></script>
+		<script src="assets/jquery_ujs.js?body=1"></script>
+		
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>		
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"</script>	
+		<script src="assets/turbolinks.js?body=1"></script>
+		<script src="assets/home.js?body=1"></script>
+		<script src="assets/application.js?body=1"></script>
+		<script src="assets/jquery.ui.timepicker.js?body=1"></script>		
+		<meta content="authenticity_token" name="csrf-param" />
+		<meta content="/sxZ0QguzyBp1Cqgnq25f+IRLgKm8Fpr0/1ic6xGt+o=" name="csrf-token" />
+		
+	  </meta>
+	</meta>
+  </head>
+  <body class='sessions new'>
+	<div class='container' id='container'>
+		<div class="sixteen columns">
+		  <header>
+			<a class="brand subbrand" href="/">Compromise</a>
+				<ul class='nav'>
+				  <li>
+					<a href="/users/sign_in">Login</a>
+				  </li>
+				  <li>
+					<a href="/users/sign_up">Sign up</a>
+				  </li>
+				</ul>
+		  </header>
+		</div>	  
+	</div>
+	<!-- ! end of #container -->
+	
+	<div class="main">
+		<div id="" class="container">
+			<div class="sixteen columns">
+				<h2>It's time to get social.</h2>
+				<p>Tell us: when are you free to go out?</p>			
+			</div>
+
+				
+			<div class="ten columns gray">				
+				<div class="three columns alpha">
+					<p class="day">Friday</p>
+				</div>
+				
+				<div class="seven columns omega">
+					<div class="pick">
+						<label for="timepicker_start">start time :</label>
+						<input type="text" style="width: 70px" id="timepicker_start" value="0:00" />
+						<label for="timepicker_end">end time :</label>
+						<input type="text" style="width: 70px" id="timepicker_end" value="0:00" />
+
+							<script type="text/javascript">
+								$(document).ready(function() {
+									$('#timepicker_start').timepicker({
+										showLeadingZero: false,
+										onSelect: tpStartSelect,
+										maxTime: {
+											hour: 23, minute: 30
+										}
+									});
+									$('#timepicker_end').timepicker({
+										showLeadingZero: false,
+										onSelect: tpEndSelect,
+										minTime: {
+											hour: 08, minute: 30
+										}
+									});
+								});
+
+								// when start time change, update minimum for end timepicker
+								function tpStartSelect( time, endTimePickerInst ) {
+									$('#timepicker_end').timepicker('option', {
+										minTime: {
+											hour: endTimePickerInst.hours,
+											minute: endTimePickerInst.minutes
+										}
+									});
+								}
+
+								// when end time change, update maximum for start timepicker
+								function tpEndSelect( time, startTimePickerInst ) {
+									$('#timepicker_start').timepicker('option', {
+										maxTime: {
+											hour: startTimePickerInst.hours,
+											minute: startTimePickerInst.minutes
+										}
+									});
+								}
+							</script>
+					</div>						
+				</div>					
+			</div> <!-- end gray -->
+
+			<div class="ten columns blue">				
+				<div class="three columns alpha">
+					<p class="day">Saturday</p>
+				</div>
+				
+				<div class="seven columns omega">
+					<div class="pick">
+						<label for="timepicker_start">start time :</label>
+						<input type="text" style="width: 70px" id="timepicker_start1" value="0:00" />
+						<label for="timepicker_end">end time :</label>
+						<input type="text" style="width: 70px" id="timepicker_end1" value="0:00" />
+
+							<script type="text/javascript">
+								$(document).ready(function() {
+									$('#timepicker_start1').timepicker({
+										showLeadingZero: false,
+										onSelect: tpStartSelect,
+										maxTime: {
+											hour: 23, minute: 30
+										}
+									});
+									$('#timepicker_end1').timepicker({
+										showLeadingZero: false,
+										onSelect: tpEndSelect,
+										minTime: {
+											hour: 08, minute: 30
+										}
+									});
+								});
+
+								// when start time change, update minimum for end timepicker
+								function tpStartSelect( time, endTimePickerInst ) {
+									$('#timepicker_end1').timepicker('option', {
+										minTime: {
+											hour: endTimePickerInst.hours,
+											minute: endTimePickerInst.minutes
+										}
+									});
+								}
+
+								// when end time change, update maximum for start timepicker
+								function tpEndSelect( time, startTimePickerInst ) {
+									$('#timepicker_start1').timepicker('option', {
+										maxTime: {
+											hour: startTimePickerInst.hours,
+											minute: startTimePickerInst.minutes
+										}
+									});
+								}
+							</script>
+					</div>						
+				</div>					
+			</div> <!-- end gray -->			
+			
+			
+		</div>	
+	</div>
+		
+  <footer>
+	<div class='footer'></div>
+  </footer>
+
+  </body>
+</html>
