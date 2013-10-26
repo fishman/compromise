@@ -26,9 +26,17 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
 end
-group :production do
-  gem 'puma'
+
+require 'rbconfig'
+HOST_OS = RbConfig::CONFIG['host_os']
+case HOST_OS
+  when /linux/i
+    group :production do
+      gem 'puma'
+    end
 end
+
+
 group :test do
   gem 'capybara'
   gem 'minitest-spec-rails'
