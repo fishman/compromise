@@ -12,15 +12,39 @@ class Event < ActiveRecord::Base
       (Date.tomorrow..(Date.tomorrow+7.days))
     end
 
+    def slot_length(timeslot)
+      (timeslot.end - timeslot.begin).minutes.round
+    end
+
     def free_slots(timeslots)
       new_slots = []
       if timeslots.size == 1
-        timeslots[0].end..end_of_day
+        slot = timeslots[0].end..end_of_day
+        new_slots << slot if slot_length(slot) > 0
       else
-        timeslots.each do |ts|
-jjk
+        timeslots.each_with_index do |ts, i|
+          if i == 0
+            # do something with the first item
+          end
+
+          last_slot = timeslots[i-1]
+          current_slot = timeslots[i]
+          slot = last_slot.end..current_slot.begin 
+          new_slots << slot if slot_length(slot) > 0
+          # common stuff
         end
       end
+      new_slots
+    end
+
+    def rainy_weather_for_slot(slot)
+      w_api = Wunderground.new("ca4fc52f5d924640")
+      planner = w_api.forecast10day_for("Germany/Berlin")
+
+      index = (slot.begin).day - Time.now.day
+      forecast = planner["forecast"]["simpleforecast"]["forecastday"][index]
+
+      forecast["conditions"].downcase.include? "rain"
     end
 
     # takes a timeslot where you do have time and 

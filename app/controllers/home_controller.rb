@@ -29,6 +29,6 @@ class HomeController < ApplicationController
     timeslots = Event.merge_ranges(timeslots)
 
     # returns new timeslots
-    Event.free_slots()
+    Event.free_slots(timeslots)
   end
 end
