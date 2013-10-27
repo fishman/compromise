@@ -1,0 +1,2 @@
+class TimeLock < Event
+end

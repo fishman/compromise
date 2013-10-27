@@ -17,3 +17,11 @@ user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => EN
 puts 'user: ' << user.name
 user.confirm!
 user.add_role :admin
+
+# start = Date.parse("2013-10-27").to_time
+# end = (Date.parse("2013-10-27")+24.hours).to_time
+# start = (Date.parse("2010-10-31")+1.day).to_time
+# end = ((Date.parse("2010-10-31")+1.day).to_time)+17.hours
+
+# TimeLock.create(starts_at: start, ends_at: end)
+

@@ -17,7 +17,7 @@ gem 'simple_form', '>= 3.0.0.rc'
 gem 'omniauth'
 gem "omniauth-google-oauth2"
 gem "google-api-client", "~> 0.6.4"
-gem "weather_underground", :path => "./vendor/gems/weather_underground"
+gem 'wunderground'
 
 group :development do
   gem 'better_errors'
