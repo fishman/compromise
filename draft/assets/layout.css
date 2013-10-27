@@ -162,17 +162,34 @@ ul li {
 /* date picker */
 .day {
 	margin-top: 6px;
-	font-weight: 400;
+	font-weight: 700;
 	font-size: 16px;
 	padding-left: 8px;
 }
 
-.gray {
-	background: #eee;
+.dayrow {
+	margin-top: 0.4em;
+
 	padding-top: 18px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-ms-border-radius: 4px;
 	border-radius: 4px;
-	
+}
+
+.gray {
+	background: #eee;
+}
+
+.blue {
+	background: #66ccff;
+}
+
+.submit {
+	margin-top: 2.6em;
+}
+
+.submit input {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;	
 }
