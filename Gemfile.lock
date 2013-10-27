@@ -122,11 +122,6 @@ GEM
     mime-types (1.25)
     mini_portile (0.5.2)
     minitest (4.7.5)
-    minitest-spec-rails (4.7.4)
-      minitest (~> 4.7)
-      rails (<= 4.0)
-    minitest-wscolor (0.0.3)
-      minitest (>= 2.3.1)
     multi_json (1.8.2)
     multi_xml (0.5.5)
     multipart-post (1.2.0)
@@ -239,8 +234,7 @@ DEPENDENCIES
   html2haml
   jbuilder (~> 1.2)
   jquery-rails
-  minitest-spec-rails
-  minitest-wscolor
+  minitest
   omniauth
   omniauth-google-oauth2
   quiet_assets

@@ -25,13 +25,12 @@ class Event < ActiveRecord::Base
         timeslots.each_with_index do |ts, i|
           if i == 0
             # do something with the first item
+          else
+            last_slot = timeslots[i-1]
+            current_slot = timeslots[i]
+            slot = last_slot.end..current_slot.begin 
+            new_slots << slot if slot_length(slot) > 0
           end
-
-          last_slot = timeslots[i-1]
-          current_slot = timeslots[i]
-          slot = last_slot.end..current_slot.begin 
-          new_slots << slot if slot_length(slot) > 0
-          # common stuff
         end
       end
       new_slots

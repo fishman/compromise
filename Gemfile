@@ -18,6 +18,7 @@ gem 'omniauth'
 gem "omniauth-google-oauth2"
 gem "google-api-client", "~> 0.6.4"
 gem 'wunderground'
+gem "binding_of_caller"
 
 group :development do
   gem 'better_errors'
@@ -41,6 +42,8 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'minitest-spec-rails'
-  gem 'minitest-wscolor'
+  gem 'minitest'
+  # require "minitest/autorun"
+  # gem 'minitest-spec-rails'
+  # gem 'minitest-wscolor'
 end
