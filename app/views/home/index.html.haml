@@ -1,4 +1,133 @@
-%h3 Home
+%h3 
 - @users.each do |user|
   %p
     User: #{link_to user.name, user}
+
+#container.container
+  .sixteen.columns
+    %header
+      %a.brand.subbrand{href: "/"} Compromise
+      %ul.nav
+        %li
+          %a{href: "/users/sign_in"} Login
+        %li
+          %a{href: "/users/sign_up"} Sign up
+/ ! end of #container
+.main
+  .container{id: ""}
+    .sixteen.columns
+      %h2 Get social.
+      %p
+        Tell us: when are you free to go out?
+        %br/
+        Compromise matches your calendar and the one of your partner, so that you
+        can concentrate on having fun.
+    .ten.columns.dayrow.gray
+      .one.column.alpha
+        %p.weather
+          %img{alt: "fog", height: "40", src: "http://icons.wxug.com/i/c/k/fog.gif", width: "40"}/
+      .two.columns
+        %p.day Friday
+      .seven.columns.omega
+        .pick
+          %label{for: "timepicker_start"} start time :
+          %input#timepicker_start{style: "width: 70px", type: "text", value: "0:00"}/
+          %label{for: "timepicker_end"} end time :
+          %input#timepicker_end{style: "width: 70px", type: "text", value: "0:00"}/
+          :javascript
+            $(document).ready(function() {
+              $('#timepicker_start').timepicker({
+                showLeadingZero: false,
+                onSelect: tpStartSelect,
+                maxTime: {
+                  hour: 23, minute: 30
+                }
+              });
+              $('#timepicker_end').timepicker({
+                showLeadingZero: false,
+                onSelect: tpEndSelect,
+                minTime: {
+                  hour: 08, minute: 30
+                }
+              });
+            });
+
+            // when start time change, update minimum for end timepicker
+            function tpStartSelect( time, endTimePickerInst ) {
+              $('#timepicker_end').timepicker('option', {
+                minTime: {
+                  hour: endTimePickerInst.hours,
+                  minute: endTimePickerInst.minutes
+                }
+              });
+            }
+
+            // when end time change, update maximum for start timepicker
+            function tpEndSelect( time, startTimePickerInst ) {
+              $('#timepicker_start').timepicker('option', {
+                maxTime: {
+                  hour: startTimePickerInst.hours,
+                  minute: startTimePickerInst.minutes
+                }
+              });
+            }
+    / end gray
+    .ten.columns.dayrow.blue
+      .one.column.alpha
+        %p.weather
+          %img{alt: "fog", height: "40", src: "http://icons.wxug.com/i/c/k/clear.gif", width: "40"}/
+      .two.columns
+        %p.day Saturday
+      .seven.columns.omega
+        .pick
+          %label{for: "timepicker_start"} start time :
+          %input#timepicker_start1{style: "width: 70px", type: "text", value: "0:00"}/
+          %label{for: "timepicker_end"} end time :
+          %input#timepicker_end1{style: "width: 70px", type: "text", value: "0:00"}/
+          :javascript
+            $(document).ready(function() {
+              $('#timepicker_start1').timepicker({
+                showLeadingZero: false,
+                onSelect: tpStartSelect,
+                maxTime: {
+                  hour: 23, minute: 30
+                }
+              });
+              $('#timepicker_end1').timepicker({
+                showLeadingZero: false,
+                onSelect: tpEndSelect,
+                minTime: {
+                  hour: 08, minute: 30
+                }
+              });
+            });
+
+            // when start time change, update minimum for end timepicker
+            function tpStartSelect( time, endTimePickerInst ) {
+              $('#timepicker_end1').timepicker('option', {
+                minTime: {
+                  hour: endTimePickerInst.hours,
+                  minute: endTimePickerInst.minutes
+                }
+              });
+            }
+
+            // when end time change, update maximum for start timepicker
+            function tpEndSelect( time, startTimePickerInst ) {
+              $('#timepicker_start1').timepicker('option', {
+                maxTime: {
+                  hour: startTimePickerInst.hours,
+                  minute: startTimePickerInst.minutes
+                }
+              });
+            }
+    / end ten gray
+    .ten.columns
+      .submit
+        %input{name: "test", type: "button", value: "Save and invite"}/
+  / container
+/ end main
+%footer.container
+  .footer.sixteen.columns
+    Weather data and icons by
+    %img#wunderground{alt: "", height: "", src: "http://icons.wxug.com/logos/PNG/wundergroundLogo_blue_horz.png", width: "160"}/
