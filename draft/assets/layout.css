@@ -160,11 +160,19 @@ ul li {
 }
 
 /* date picker */
+
+.weather {
+	padding-left: 8px;
+}
+
 .day {
-	margin-top: 6px;
+	margin-top: 10px;
 	font-weight: 700;
 	font-size: 16px;
-	padding-left: 8px;
+}
+
+.pick {
+	margin-top: 2px;
 }
 
 .dayrow {
@@ -192,4 +200,10 @@ ul li {
 .submit input {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;	
+}
+
+/* footer */
+.footer {
+	margin-top: 3em;
+	font-size: 11px;
 }
